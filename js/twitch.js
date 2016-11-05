@@ -1,4 +1,4 @@
-
+//comment
 $(document).ready(function () {
     var users = [
           {name:"ESL_SC2", online: 0}
