@@ -1,0 +1,20 @@
+﻿
+.search{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.affix {
+    top:50px;
+    position:fixed;
+}
+
+body{
+    background-color: #394963 !important;
+}
+.head{
+    color: #9cafce;
+}
+.tab{
+    background-color: #9cafce;
+}
