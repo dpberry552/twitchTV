@@ -1,15 +1,15 @@
 
 $(document).ready(function () {
     var users = [
-          {name:"ESL_SC2", online: 0}
-        , {name:"OgamingSC2", online: 0}
-        , {name:"cretetion", online: 0}
-        , {name:"freecodecamp", online: 0}
-        , {name:"storbeck", online: 0}
-        , {name:"habathcx", online: 0}
-        , {name:"RobotCaleb", online: 0}
-        , {name:"noobs2ninjas", online: 0}
-        , {name:"MedryBW", online: 0}
+          { name: "ESL_SC2", online: 0 }
+        , { name: "OgamingSC2", online: 0 }
+        , { name: "cretetion", online: 0 }
+        , { name: "freecodecamp", online: 0 }
+        , { name: "storbeck", online: 0 }
+        , { name: "habathcx", online: 0 }
+        , { name: "RobotCaleb", online: 0 }
+        , { name: "noobs2ninjas", online: 0 }
+        , { name: "MedryBW", online: 0 }
     ];
     var onlineFlag;
     var userStreams = [];
@@ -25,8 +25,8 @@ $(document).ready(function () {
             success: function (data) {
                 var curUser = data.name;
                 //console.log(data);
-                getStreams(data);            
-             }
+                getStreams(data);
+            }
         });
     }
     function getStreams(userData) {
@@ -42,8 +42,8 @@ $(document).ready(function () {
                 //console.log(data);
                 if (data.streams.length > 0) {
                     var onlineFlag = 1;
-                    updateElement(users, "name", user, onlineFlag);                    
-                    updateHTML(user, userData, "online");                   
+                    updateElement(users, "name", user, onlineFlag);
+                    updateHTML(user, userData, "online");
                 }
                 else {
                     updateHTML(user, userData, "offline");
@@ -73,7 +73,7 @@ $(document).ready(function () {
         var status = $("<div></div>").attr("id", user + "Status" + id).html(data.status);
         //building html from variables above
         $("#" + id).append(row);
-        $("#" + user + "row" + id).css({"margin-bottom":"0"}).append(col);
+        $("#" + user + "row" + id).css({ "margin-bottom": "0" }).append(col);
         $("#" + user + "col" + id).append(well);
         $("#" + user + "well" + id).append(row2);
         $("#" + user + "row2" + id).append(col2);
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
     function updateElement(arr, propName, propValue, newValue) {
         for (var i = 0; i < arr.length; i++)
-        if (arr[i][propName].toString().toLowerCase() == propValue.toLowerCase()) {
+            if (arr[i][propName].toString().toLowerCase() == propValue.toLowerCase()) {
                 arr[i][1] = newValue;
                 console.log("name = " + arr[i][propName].toString() + " and " + "users[" + i + "] = " + users[i][1].toString());
                 return 0;
@@ -118,9 +118,9 @@ $(document).ready(function () {
         $("#" + user + "col3" + id).append("<h3>Offline    <span class = 'glyphicon glyphicon-remove'</span></h3>");
         return 0;
     }
-    
 
-    function filterHTML(searchBox){
+
+    function filterHTML(searchBox) {
         var filter = $("#" + searchBox).val();
         console.log("search box val = " + $("#" + searchBox).val().toString());
         var row = $('.row');
@@ -131,6 +131,6 @@ $(document).ready(function () {
     $('#searchAll').keyup(function () {
         filterHTML("searchAll");
     });
-    
-});
+    getUsers();
 
+});
